@@ -29,15 +29,15 @@ title = conf.get('site', 'title')
 
 @app.route('/')
 def start():
-    return template('index', title=title)
+    return template('index', title=title, page=start)
 
 @app.route('/inventory')
 def inventory():
-    return template('inventory', title=title)
+    return template('inventory', title=title, page=inventory)
 
 @app.route('/analysis')
 def analysis():
-    return template('analysis', title=title)
+    return template('analysis', title=title, page=analysis)
 
 
 @app.route('/static/<filename>')

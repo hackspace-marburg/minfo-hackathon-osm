@@ -12,7 +12,7 @@
         <th>Gesch&auml;tsname</th>
         <th>Adresse</th>
         <th>Score</th>
-        <th>Aktion</th>
+        <th>Status</th>
         </tr>
       </thead>
       <tbody>
@@ -22,18 +22,16 @@
         <td>Am Gr&uuml;n 1, 35037 Marburg</td>
         <td>1.0</td>
         <td>
-          <button class="button is-success is-light">Existiert</button>
-          <button class="button is-danger is-light">Geschlossen</button>
+          <span class="tag is-success">Existiert</span>
         </td>
       </tr>
        <tr>
-        <th>1</th>
+        <th>2</th>
         <td>Sefa's D&ouml;ner und Pizzahaus</td>
         <td>Am Gr&uuml;n 1, 35037 Marburg</td>
         <td>1.0</td>
-       <td>
-          <button class="button is-success is-light">Existiert</button>
-          <button class="button is-danger is-light">Geschlossen</button>
+        <td>
+          <span class="tag is-danger">Geschlossen</span>
         </td>
       </tr>
       </tbody>
