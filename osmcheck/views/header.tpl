@@ -3,13 +3,6 @@
 <head>
 	<title>{{title}}</title>
 	<link rel="stylesheet" href="/static/bulma.css"/>
-  <style>
-    html {
-    background-image: url('/static/marburg.png'); 
-    background-position: fixed right bottom;
-    background-repeat: no-repeat;
-    }
-  </style>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
