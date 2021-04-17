@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
+<div class="container">
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
@@ -13,12 +14,12 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-       Ergebnisse 
+      <a class="navbar-item" href="/inventory">
+       Gibt es diesen Laden noch? 
       </a>
 
-      <a class="navbar-item">
-       Daten
+      <a class="navbar-item" href="/analysis">
+       Was sagen die Daten aus?
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
@@ -28,7 +29,7 @@
 
         <div class="navbar-dropdown">
           <a class="navbar-item">
-            &Uuml;ber
+            &Uuml;ber das Projekt
           </a>
           <a class="navbar-item">
             Dokumentation

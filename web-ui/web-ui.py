@@ -31,6 +31,15 @@ title = conf.get('site', 'title')
 def start():
     return template('index', title=title)
 
+@app.route('/inventory')
+def inventory():
+    return template('inventory', title=title)
+
+@app.route('/analysis')
+def analysis():
+    return template('analysis', title=title)
+
+
 @app.route('/static/<filename>')
 def static(filename):
     return static_file(filename, root=args.path+"/static/")
