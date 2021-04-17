@@ -1,5 +1,6 @@
 import overpass
 
+from functools import lru_cache
 from datetime import datetime
 from typing import Dict, List, NamedTuple
 
@@ -21,6 +22,7 @@ class OsmEntry(NamedTuple):
         return self.osm_id
 
 
+@lru_cache(maxsize=128)
 def query_osm(region: str) -> List[OsmEntry]:
     "List all shops within the specified region."
     api = overpass.API()

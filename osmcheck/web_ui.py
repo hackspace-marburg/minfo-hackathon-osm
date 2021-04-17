@@ -17,19 +17,20 @@ app = Bottle()
 
 @app.route("/")
 def start():
-    return template("index", title=WEB_TITLE, page=start)
+    return template("index", title=WEB_TITLE)
 
 
-@app.route("/inventory")
-def inventory():
-    entries = api.query_osm(DEFAULT_REGION)[:15]
+@app.route("/inventory/<page:int>")
+def inventory(page):
+    page = max(0, page)
+    entries = api.query_osm(DEFAULT_REGION)[page*15:(page+1)*15]
     items = [{"entry": e, "score": api.calc_score(e)} for e in entries]
-    return template("inventory", title=WEB_TITLE, items=items, page=inventory)
+    return template("inventory", title=WEB_TITLE, items=items, page=page)
 
 
 @app.route("/analysis")
 def analysis():
-    return template("analysis", title=WEB_TITLE, page=analysis)
+    return template("analysis", title=WEB_TITLE)
 
 
 @app.route("/static/<filename>")

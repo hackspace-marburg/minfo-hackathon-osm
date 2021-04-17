@@ -19,7 +19,7 @@
       <tr>
         <th><a href="https://www.openstreetmap.org/node/{{item["entry"].osm_id}}">{{item["entry"].osm_id}}</a></th>
         <td>{{item["entry"].tags.get("name", "N/A")}}</td>
-        <td>{{item["score"]}}</td>
+        <td>{{round(item["score"], 2)}}</td>
         <td>
           % if item["score"] > 0.75:
           <span class="tag is-success">Existiert</span>
@@ -31,6 +31,15 @@
       %end
       </tbody>
       </table>
+
+      <nav class="pagination is-small" role="navigation" aria-label="pagination">
+        % if page == 0:
+        <a class="pagination-previous" disabled>Previous</a>
+        % else:
+        <a href="/inventory/{{page - 1}}" class="pagination-previous">Previous</a>
+        % end
+        <a href="/inventory/{{page + 1}}" class="pagination-next">Next page</a>
+      </nav>
    </div>
   </div>
 </div>

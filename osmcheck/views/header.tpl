@@ -15,7 +15,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="/inventory">
+      <a class="navbar-item" href="/inventory/0">
        Gibt es diesen Laden noch? 
       </a>
 
