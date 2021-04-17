@@ -7,24 +7,26 @@ api_token = sys.argv[1]
 
 
 def here_api_request(name, latitude, longitude) -> dict:
-    print("Here Places api token: {}".format(api_token))
     request_params = {
-            'at' : '{},{}'.format(latitude, longitude),
-            'q' : name,
+            'in': 'circle:{},{};r=100'.format(latitude, longitude),
+            'q': name,
             'apiKey' : '{}'.format(api_token)
         }
+    print("Here Places Api: using the following Parameters for the Entrypoint 'Discover':")
+    print(request_params)
+
     r = requests.get(
         'https://discover.search.hereapi.com/v1/discover',
         params = request_params
     )
-
     if(r.status_code == 401):
-        raise Exception("Bad Here Places Api Key")
-    r.raise_for_status()
-    print(r.headers)
-    print(r.status_code)
+        raise Exception("Bad Here Places api Key")
     print(r.text)
+    r.raise_for_status()
+
+    print("Received Data:")
+    print(r.headers)
+    print("Status Code: {}".format(r.status_code))
     result = json.loads(r.text)
     pprint(result)
-
-here_api_request('döner', 50.8161222, 8.7784447)
+    return result
