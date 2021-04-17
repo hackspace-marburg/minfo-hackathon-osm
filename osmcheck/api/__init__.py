@@ -4,6 +4,7 @@ __all__ = [
     "check_osm_closed",
     "check_timestamp",
     "check_website",
+    "check_lieferando",
     "osm",
 ]
 
@@ -14,3 +15,4 @@ from .check_gelbe_seiten import *
 from .check_osm_closed import *
 from .check_timestamp import *
 from .check_website import *
+from .check_lieferando import *
