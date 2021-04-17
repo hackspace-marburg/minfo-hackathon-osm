@@ -3,10 +3,13 @@ import sys
 import json
 from pprint import pprint
 
-api_token = sys.argv[1]
 
 
 def here_api_request(name, latitude, longitude) -> dict:
+    with open("../../here_places_api_key", "r") as keyfile:
+        api_token = keyfile.read()
+        keyfile.close()
+
     request_params = {
             'in': 'circle:{},{};r=100'.format(latitude, longitude),
             'q': name,
