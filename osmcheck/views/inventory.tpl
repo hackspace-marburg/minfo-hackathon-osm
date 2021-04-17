@@ -39,6 +39,23 @@
         <a href="/inventory/{{page - 1}}" class="pagination-previous">Vorherige</a>
         % end
         <a href="/inventory/{{page + 1}}" class="pagination-next">N&auml;chste</a>
+        <ul class="pagination-list">
+          % if page > 2:
+          <li><a href="/inventory/0" class="pagination-link">0</a></li>
+          <li><span class="pagination-ellipsis">&hellip;</span></li>
+          % end
+
+          % if page > 0:
+          <li><a href="/inventory/{{page - 1}}" class="pagination-link">{{page - 1}}</a></li>
+          % end
+          <li><a href="/inventory/{{page}}" class="pagination-link is-current" aria-current="page">{{page}}</a></li>
+          % if page < pages_max:
+          <li><a href="/inventory/{{page + 1}}" class="pagination-link">{{page + 1}}</a></li>
+
+          <li><span class="pagination-ellipsis">&hellip;</span></li>
+          <li><a href="/inventory/{{pages_max}}" class="pagination-link">{{pages_max}}</a></li>
+          % end
+        </ul>
       </nav>
    </div>
   </div>

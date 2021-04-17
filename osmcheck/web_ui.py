@@ -1,7 +1,9 @@
+import math
+import os
+
 from bottle import Bottle, TEMPLATE_PATH
 from bottle import run, post, get, template, static_file
 from argparse import ArgumentParser
-import os
 
 from osmcheck import api
 
@@ -23,9 +25,12 @@ def start():
 @app.route("/inventory/<page:int>")
 def inventory(page):
     page = max(0, page)
-    entries = api.query_osm(DEFAULT_REGION)[page*15:(page+1)*15]
+    all_entries = api.query_osm(DEFAULT_REGION)
+    pages_max = math.floor(len(all_entries) / 15)
+
+    entries = all_entries[page*15:(page+1)*15]
     items = [{"entry": e, "score": api.calc_score(e)} for e in entries]
-    return template("inventory", title=WEB_TITLE, items=items, page=page)
+    return template("inventory", title=WEB_TITLE, items=items, page=page, pages_max=pages_max)
 
 
 @app.route("/analysis")
