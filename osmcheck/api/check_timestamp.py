@@ -12,7 +12,7 @@ class CheckTimestamp(Check):
     """
 
     @staticmethod
-    def eval(entry: OsmEntry) -> float:
+    def eval(entry: OsmEntry) -> Optional[float]:
         delta = datetime.datetime.now() - entry.timestamp
         months = int(delta.days / 30.0)
 
