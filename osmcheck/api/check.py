@@ -1,3 +1,5 @@
+import statistics
+
 from typing import Dict, Optional, Type
 
 from .osm import OsmEntry
@@ -30,3 +32,9 @@ def register_check(clz: Type[Check]):
 def check(entry: OsmEntry) -> Dict[str, float]:
     "Check an entry against all known Checks."
     return {name: ct.eval(entry) for name, ct in check_types.items()}
+
+
+def calc_score(entry: OsmEntry) -> float:
+    "Calculate a final score based on all Checks."
+    checks = [v for k, v in check(entry).items() if v is not None]
+    return statistics.mean(checks)

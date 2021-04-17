@@ -10,30 +10,25 @@
         <tr>
         <th><abbr title="Position">#</abbr></th>
         <th>Gesch&auml;tsname</th>
-        <th>Adresse</th>
         <th>Score</th>
         <th>Status</th>
         </tr>
       </thead>
       <tbody>
+      % for item in items:
       <tr>
-        <th>1</th>
-        <td>Sefa's D&ouml;ner und Pizzahaus</td>
-        <td>Am Gr&uuml;n 1, 35037 Marburg</td>
-        <td>1.0</td>
+        <th><a href="https://www.openstreetmap.org/node/{{item["entry"].osm_id}}">{{item["entry"].osm_id}}</a></th>
+        <td>{{item["entry"].tags.get("name", "N/A")}}</td>
+        <td>{{item["score"]}}</td>
         <td>
+          % if item["score"] > 0.75:
           <span class="tag is-success">Existiert</span>
-        </td>
-      </tr>
-       <tr>
-        <th>2</th>
-        <td>Sefa's D&ouml;ner und Pizzahaus</td>
-        <td>Am Gr&uuml;n 1, 35037 Marburg</td>
-        <td>1.0</td>
-        <td>
+          % else:
           <span class="tag is-danger">Geschlossen</span>
+          % end
         </td>
       </tr>
+      %end
       </tbody>
       </table>
    </div>

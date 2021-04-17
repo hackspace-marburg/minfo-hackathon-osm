@@ -9,7 +9,7 @@ __all__ = [
 
 from .osm import *
 
-from .check import check
+from .check import check, calc_score
 from .check_gelbe_seiten import *
 from .check_osm_closed import *
 from .check_timestamp import *
