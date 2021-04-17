@@ -37,9 +37,3 @@ def query_osm(south: float, west: float, north: float, east: float) -> List[OsmE
         for ele in resp["elements"]
         if ele["type"] == "node"
     ]
-
-
-if __name__ == "__main__":
-    from pprint import pprint
-
-    pprint(query_osm(50.7788, 8.7510, 50.8083, 8.8122))
