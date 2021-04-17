@@ -6,10 +6,10 @@
       <p>Projektbeschreibung</p>
       </div>
       <div class="message-body">
-      <p><em>Ladenschlie&szlig;ungen in Marburg</em> fragt bei externen Dienstleistern ab, ob L&auml;den dort eingetragen sind. Daraus l&auml;sst sich schlie&szlig;en, ob sie noch existieren.</p>
+      <p><em>{{title}}</em> fragt bei externen Dienstleistern ab, ob L&auml;den aus Marburg dort eingetragen sind. Daraus l&auml;sst sich schlie&szlig;en, ob sie noch existieren.</p>
       </div>
     </article>
-    <a class="button is-success" href="/inventory">Los geht's!</a>
+    <a class="button is-success" href="/inventory/0">Los geht's!</a>
   </div>
   <div class="column">
     <article class="message is-info">
