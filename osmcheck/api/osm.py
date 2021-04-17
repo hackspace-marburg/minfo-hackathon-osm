@@ -17,6 +17,9 @@ class OsmEntry(NamedTuple):
             return f"OsmEntry({self.osm_id}, {self.tags['name']})"
         return f"OsmEntry({self.osm_id})"
 
+    def __hash__(self) -> int:
+        return self.osm_id
+
 
 def query_osm(region: str) -> List[OsmEntry]:
     "List all shops within the specified region."

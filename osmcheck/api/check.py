@@ -1,5 +1,6 @@
 import statistics
 
+from functools import lru_cache
 from typing import Dict, Optional, Type
 
 from .osm import OsmEntry
@@ -29,6 +30,7 @@ def register_check(clz: Type[Check]):
     check_types[clz.__name__] = clz
 
 
+@lru_cache(maxsize=1024)
 def check(entry: OsmEntry) -> Dict[str, float]:
     "Check an entry against all known Checks."
     return {name: ct.eval(entry) for name, ct in check_types.items()}
