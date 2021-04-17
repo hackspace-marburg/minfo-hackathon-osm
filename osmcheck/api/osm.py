@@ -18,11 +18,11 @@ class OsmEntry(NamedTuple):
         return f"OsmEntry({self.osm_id})"
 
 
-def query_osm(south: float, west: float, north: float, east: float) -> List[OsmEntry]:
-    "List all shops within the specified bounding box."
+def query_osm(region: str) -> List[OsmEntry]:
+    "List all shops within the specified region."
     api = overpass.API()
     resp = api.get(
-        f"node['shop']({south},{west},{north},{east});",
+        f"area[name='{region}'];node['shop'](area);",
         verbosity="meta",
         responseformat="json",
     )
