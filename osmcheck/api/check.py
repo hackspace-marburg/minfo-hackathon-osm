@@ -1,4 +1,4 @@
-from typing import Dict, Type
+from typing import Dict, Type, Optional
 
 from .osm import OsmEntry
 
@@ -7,13 +7,13 @@ class Check:
     "Abstract base class for checks on OSM entries."
 
     @staticmethod
-    def eval(entry: OsmEntry) -> float:
+    def eval(entry: OsmEntry) -> Optional[float]:
         """ Evaluate this OsmEntry and return the calculated probability.
 
             The resulting probability must be within [0,1]. A zero value means
-            that for this Check, this entry cannot exist anymore. However, a one
+            that for this check, this entry cannot exist anymore. However, a one
             means that this entry must exist. If this Check cannot perform an
-            evaluation, 0.5 must be returned. Of course, every value within the
+            evaluation, None must be returned. Of course, every value within the
             interval is possible and an implementation matter.
         """
         raise NotImplementedError("eval was not overridden")

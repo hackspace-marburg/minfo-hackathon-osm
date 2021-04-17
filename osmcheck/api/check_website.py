@@ -11,9 +11,9 @@ class CheckWebsite(Check):
     """
 
     @staticmethod
-    def eval(entry: OsmEntry) -> float:
+    def eval(entry: OsmEntry) -> Optional[float]:
         if not "website" in entry.tags:
-            return 0.5
+            return None
 
         try:
             r = requests.get(entry.tags["website"])

@@ -7,7 +7,7 @@ class CheckOsmClosed(Check):
     "OSM has some tags to identify closed shops. Let's check them."
 
     @staticmethod
-    def eval(entry: OsmEntry) -> float:
+    def eval(entry: OsmEntry) -> Optional[float]:
         tags = [
             ("disused", "yes"),
             ("shop", "vacant"),
@@ -23,4 +23,4 @@ class CheckOsmClosed(Check):
                 if tag in entry.tags:
                     return 0.0
 
-        return 0.5
+        return None
