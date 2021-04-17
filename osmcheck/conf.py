@@ -1,7 +1,7 @@
 # Good old code configuration, because.
 
 # Title of the webpage.
-WEB_TITLE: str = "Ladenschließungen in Marburg"
+WEB_TITLE: str = "*klopf*"
 
 # Where to listen.
 WEB_HOST: str = "localhost"

@@ -16,11 +16,11 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href="/inventory/0">
-       Gibt es diesen Laden noch? 
+       Inventar 
       </a>
 
       <a class="navbar-item" href="/analysis">
-       Was sagen die Daten aus?
+       Analyse
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
