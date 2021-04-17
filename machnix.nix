@@ -15,4 +15,6 @@ let
 in
 mach-nix.mkPython {
   requirements = builtins.readFile ./requirements.txt;
+
+  providers.shapely = "nixpkgs";
 }
