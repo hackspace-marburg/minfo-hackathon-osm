@@ -1,5 +1,7 @@
 import datetime
 
+from typing import Optional
+
 from .check import Check, register_check
 from .osm import OsmEntry
 
