@@ -6,19 +6,20 @@ from typing import Optional
 from .check import Check, register_check
 from .osm import OsmEntry
 
+from ..conf import DEFAULT_CITY
+
 
 @register_check
 class CheckGelbeSeiten(Check):
-    # TODO
+    "Check an OsmEntry against the Gelbe Seiten (yellow pages)."
 
     @staticmethod
     def eval(entry: OsmEntry) -> Optional[float]:
         if not "name" in entry.tags:
             return None
-        if not "addr:city" in entry.tags:
-            return None
 
-        city, name = entry.tags["addr:city"], entry.tags["name"]
+        name = entry.tags["name"]
+        city = entry.tags["addr:city"] if "addr:city" in entry.tags else DEFAULT_CITY
 
         try:
             r = requests.get(f"https://www.gelbeseiten.de/Suche/{name}/{city}")
