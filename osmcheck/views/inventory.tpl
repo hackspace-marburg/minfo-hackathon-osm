@@ -3,7 +3,7 @@
   <div class="column">
     <div class="content">
       <div class="notification is-info">
-      <p>Diese Tabelle zeigt L&auml;den an, bei denen unklar ist, ob sie noch exisitieren.</p>
+      <p>Diese Tabelle zeigt L&auml;den in Marburg an, bei denen klar oder unklar ist, ob sie noch exisitieren.</p>
       </div>
       <table class="table">
       <thead>
@@ -34,11 +34,11 @@
 
       <nav class="pagination is-small" role="navigation" aria-label="pagination">
         % if page == 0:
-        <a class="pagination-previous" disabled>Previous</a>
+        <a class="pagination-previous" disabled>Vorherige</a>
         % else:
-        <a href="/inventory/{{page - 1}}" class="pagination-previous">Previous</a>
+        <a href="/inventory/{{page - 1}}" class="pagination-previous">Vorherige</a>
         % end
-        <a href="/inventory/{{page + 1}}" class="pagination-next">Next page</a>
+        <a href="/inventory/{{page + 1}}" class="pagination-next">N&auml;chste</a>
       </nav>
    </div>
   </div>
