@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{title}}</title>
-	<link rel="stylesheet" href="/static/bulma.css"/>
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/static/bulma.css"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
 <div class="container">
@@ -16,7 +16,7 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href="/inventory/0">
-       Inventar 
+       Inventar
       </a>
 
       <a class="navbar-item" href="/analysis">
@@ -29,14 +29,10 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
+          <a href="https://github.com/hackspace-marburg/minfo-hackathon-osm" class="navbar-item">
             &Uuml;ber das Projekt
           </a>
-          <a class="navbar-item">
-            Dokumentation
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
+          <a href="https://github.com/hackspace-marburg/minfo-hackathon-osm/issues" class="navbar-item">
             Fehler melden
           </a>
         </div>

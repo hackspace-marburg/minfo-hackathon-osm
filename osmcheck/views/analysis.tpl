@@ -2,7 +2,7 @@
 <div class="columns">
   <div class="column">
     <div class="content">
-      <p>Dies ist ein Projekt im Aufbaustadium.</p>
+      <p>Es gibt viel zu tun. Muss man nur machen. <pre>¯\_(ツ)_/¯</pre></p>
     </div>
   </div>
 </div>
