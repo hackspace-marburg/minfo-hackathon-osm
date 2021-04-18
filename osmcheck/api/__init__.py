@@ -15,12 +15,8 @@ from .osm import *
 from .check import check, calc_score
 from .check_gelbe_seiten import *
 from .check_here_places import *
+from .check_jodel import *
 from .check_lieferando import *
 from .check_osm_closed import *
 from .check_timestamp import *
 from .check_website import *
-<<<<<<< HEAD
-=======
-from .check_lieferando import *
-from .check_jodel import *
->>>>>>> 1595689 (daten machen statt nur nutzen mit dem akademischen jodeldiplom. jodel di podel.)
