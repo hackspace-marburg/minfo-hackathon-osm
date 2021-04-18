@@ -6,6 +6,7 @@ __all__ = [
     "check_website",
     "check_lieferando",
     "osm",
+    "here_places_check",
 ]
 
 from .osm import *
@@ -16,3 +17,4 @@ from .check_osm_closed import *
 from .check_timestamp import *
 from .check_website import *
 from .check_lieferando import *
+from .here_places_check import *
