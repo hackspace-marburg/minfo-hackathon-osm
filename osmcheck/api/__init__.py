@@ -2,6 +2,7 @@ __all__ = [
     "check",
     "check_gelbe_seiten",
     "check_here_places",
+    "check_jodel",
     "check_lieferando",
     "check_osm_closed",
     "check_timestamp",
@@ -18,3 +19,8 @@ from .check_lieferando import *
 from .check_osm_closed import *
 from .check_timestamp import *
 from .check_website import *
+<<<<<<< HEAD
+=======
+from .check_lieferando import *
+from .check_jodel import *
+>>>>>>> 1595689 (daten machen statt nur nutzen mit dem akademischen jodeldiplom. jodel di podel.)

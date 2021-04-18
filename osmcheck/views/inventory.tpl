@@ -12,6 +12,7 @@
         <th>Gesch&auml;tsname</th>
         <th>Score</th>
         <th>Status</th>
+        <th>Get HR involved</th>
         </tr>
       </thead>
       <tbody>
@@ -25,6 +26,14 @@
           <span class="tag is-success">Existiert</span>
           % else:
           <span class="tag is-danger">Geschlossen</span>
+          % end
+        </td>
+        <td>
+          % if "name" in item["entry"].tags:
+          <a class="tags has-addons" href="/jodel/poll/osm:{{item["entry"].osm_id}}?city={{city}}&lat={{item["entry"].lat}}&lng={{item["entry"].lon}}&channel={{jodel_channel}}&message={{quote("Gibt es " + item["entry"].tags.get("name") + " noch? #frage")}}&poll_option=Ja&poll_option=Nein">
+            <span class="tag is-warning">Jodel</span>
+            <span class="tag is-dark">Ask</span>
+          </a>
           % end
         </td>
       </tr>
