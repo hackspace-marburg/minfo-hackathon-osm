@@ -14,7 +14,20 @@ let
   };
 in
 mach-nix.mkPython {
-  requirements = builtins.readFile ./requirements.txt;
+  requirements = ''
+    beautifulsoup4
+    waitress
+    bottle
+    overpass
+    requests
+    selenium
+    textdistance[Levenshtein]
+  '';
+
+  packagesExtra = [
+    "https://github.com/hackspace-marburg/jodel_api/tarball/poll-options"
+    "https://github.com/patx/pickledb/tarball/master"
+  ];
 
   providers.shapely = "nixpkgs";
 }
