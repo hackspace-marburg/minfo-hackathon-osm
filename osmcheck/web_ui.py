@@ -12,7 +12,7 @@ from osmcheck import api
 from .web_jodel import hr
 
 from .conf import (
-    DEFAULT_REGION, DEFAULT_CITY,
+    DEFAULT_REGION_KEY, DEFAULT_CITY,
     WEB_TITLE, WEB_HOST, WEB_PORT,
     JODEL_DEFAULT_CHANNEL
 )
@@ -34,7 +34,7 @@ def start():
 @app.route("/inventory/<page:int>")
 def inventory(page):
     page = max(0, page)
-    all_entries = api.query_osm(DEFAULT_REGION)
+    all_entries = api.query_osm(DEFAULT_REGION_KEY)
     pages_max = math.floor(len(all_entries) / 15)
 
     entries = all_entries[page*15:(page+1)*15]

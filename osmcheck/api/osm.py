@@ -23,11 +23,11 @@ class OsmEntry(NamedTuple):
 
 
 @lru_cache(maxsize=128)
-def query_osm(region: str) -> List[OsmEntry]:
-    "List all shops within the specified region."
+def query_osm(regional_key: str) -> List[OsmEntry]:
+    "List all shops within the REGIONALSCHLÜSSEL."
     api = overpass.API()
     resp = api.get(
-        f"area[name='{region}'];node['shop'](area);",
+        f"area['de:regionalschluessel'='{regional_key}'];node['shop'](area);",
         verbosity="meta",
         responseformat="json",
     )

@@ -8,10 +8,10 @@ WEB_HOST: str = "localhost"
 WEB_PORT: int = 8161
 
 # Region to operate in.
-DEFAULT_REGION: str = "Marburg"
+DEFAULT_REGION_KEY: str = "065340014014"
 
 # Fallback city for missing city tags.
-DEFAULT_CITY: str = DEFAULT_REGION
+DEFAULT_CITY: str = "Marburg"
 
 # Jodel pickleDB location.
 JODEL_DB_PATH: str = '/tmp/jodel.db'
