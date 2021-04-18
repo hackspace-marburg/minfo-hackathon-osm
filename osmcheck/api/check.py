@@ -33,10 +33,10 @@ def register_check(clz: Type[Check]):
 @lru_cache(maxsize=1024)
 def check(entry: OsmEntry) -> Dict[str, float]:
     "Check an entry against all known Checks."
-    return {name: ct.eval(entry) for name, ct in check_types.items()}
+    return {name[5:]: ct.eval(entry) for name, ct in check_types.items()}
 
 
-def calc_score(entry: OsmEntry) -> float:
+def calc_score(checks: Dict[str, float]) -> float:
     "Calculate a final score based on all Checks."
-    checks = [v for k, v in check(entry).items() if v is not None]
-    return statistics.mean(checks)
+    checks = [v for k, v in checks.items() if v is not None]
+    return statistics.median_high(checks)

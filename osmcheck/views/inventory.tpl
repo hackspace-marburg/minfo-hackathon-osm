@@ -5,7 +5,7 @@
       <div class="notification is-info">
       <p>Diese Tabelle zeigt L&auml;den in Marburg an, bei denen klar oder unklar ist, ob sie noch exisitieren.</p>
       </div>
-      <table class="table">
+      <table class="table is-striped">
       <thead>
         <tr>
         <th><abbr title="Position">#</abbr></th>
@@ -20,9 +20,9 @@
       <tr>
         <th><a href="https://www.openstreetmap.org/node/{{item["entry"].osm_id}}">{{item["entry"].osm_id}}</a></th>
         <td>{{item["entry"].tags.get("name", "N/A")}}</td>
-        <td>{{round(item["score"], 2)}}</td>
+        <td>{{round(calc_score(item["checks"]), 2)}}</td>
         <td>
-          % if item["score"] > 0.75:
+          % if calc_score(item["checks"]) >= 0.75:
           <span class="tag is-success">Existiert</span>
           % else:
           <span class="tag is-danger">Geschlossen</span>
@@ -37,6 +37,27 @@
           % end
         </td>
       </tr>
+      <tr>
+        <th>&nbsp;</th>
+        <td colspan="4">
+          <div class="field is-grouped is-grouped-multiline">
+            % for k, v in item["checks"].items():
+            <div class="control">
+              <div class="tags has-addons">
+                <span class="tag is-light">{{k}}</span>
+                % if not v:
+                <span class="tag is-warning">N/A</span>
+                % elif v >= 0.75:
+                <span class="tag is-success">{{round(v, 2)}}</span>
+                % else:
+                <span class="tag is-danger">{{round(v, 2)}}</span>
+                % end
+              </div>
+            </div>
+            %end
+          </div>
+        </td>
+      </tr>
       %end
       </tbody>
       </table>
@@ -47,7 +68,13 @@
         % else:
         <a href="/inventory/{{page - 1}}" class="pagination-previous">Vorherige</a>
         % end
+
+        % if page < pages_max:
         <a href="/inventory/{{page + 1}}" class="pagination-next">N&auml;chste</a>
+        % else:
+        <a class="pagination-next" disabled>N&auml;chste</a>
+        % end
+
         <ul class="pagination-list">
           % if page > 2:
           <li><a href="/inventory/0" class="pagination-link">0</a></li>

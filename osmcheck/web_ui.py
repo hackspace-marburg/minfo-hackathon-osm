@@ -38,12 +38,13 @@ def inventory(page):
     pages_max = math.floor(len(all_entries) / 15)
 
     entries = all_entries[page*15:(page+1)*15]
-    items = [{"entry": e, "score": api.calc_score(e)} for e in entries]
+    items = [{"entry": e, "checks": api.check(e)} for e in entries]
     return template("inventory", title=WEB_TITLE,
                     city=DEFAULT_CITY, items=items,
                     page=page, pages_max=pages_max,
                     jodel_channel=JODEL_DEFAULT_CHANNEL,
-                    quote=urllib.parse.quote_plus)
+                    quote=urllib.parse.quote_plus,
+                    calc_score=api.calc_score)
 
 
 @app.route("/analysis")
