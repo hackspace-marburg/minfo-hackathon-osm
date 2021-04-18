@@ -45,8 +45,8 @@ def _lieferando_init() -> Set[str]:
     return rs
 
 
-#restaurants = _lieferando_init()
-#logger.debug(f"known restaurants:\n{restaurants}")
+restaurants = _lieferando_init()
+logger.debug(f"known restaurants:\n{restaurants}")
 
 
 def _check_lieferando(entry_name: str, city: str) -> Optional[float]:
@@ -61,7 +61,7 @@ def _check_lieferando(entry_name: str, city: str) -> Optional[float]:
     return highest_propability[0]
 
 
-#@register_check
+@register_check
 class CheckLieferando(Check):
     """
     checks if an entry is of "food" type and queries the lieferando website for it.
